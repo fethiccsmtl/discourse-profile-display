@@ -22,7 +22,7 @@ export default class UserAgeRange extends Component {
   <template>
       {{#if this.ageRangeLabel}}
       <div class="user-age-range">
-        Tranche d'âge : {{this.ageRangeLabel}}
+        Tranche d'âge / Age range : {{this.ageRangeLabel}}
       </div>
     {{/if}}
   </template>
