@@ -21,7 +21,7 @@ export default apiInitializer("1.8.0", (api) => {
   api.renderInOutlet("user-card-after-metadata", 
     // Crée un div avec le message approprié
     <template>
-      {{#if @outletArgs.user.user_fields.1}} <!-- Remplace 1 par ton ID -->
+      {{#if @outletArgs.user.user_fields}} <!-- Remplace 1 par ton ID -->
         <div class="user-age-range">
           Âge : {{@outletArgs.user.user_fields[1]}} ans
         </div>
