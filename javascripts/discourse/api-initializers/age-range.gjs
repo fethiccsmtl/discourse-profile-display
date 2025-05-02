@@ -2,18 +2,16 @@ import { apiInitializer } from "discourse/lib/api";
 
 export default apiInitializer("1.8.0", (api) => {
 
-  api.renderInOutlet(
-    " after-header",
-    <template>
+  api.renderInOutlet("after-header", () => {
+    return (
       <div class="custom-welcome-banner">
-        {{#if currentUser}}
-          Welcome back @{{currentUser.username}}
-        {{else}}
-          Welcome to our community
-        {{/if}}
+        {currentUser
+          ? `Welcome back @${currentUser.username}`
+          : "Welcome to our community"}
       </div>
-    </template>
-  );
+    );
+  });
+});
 
   // api.decorateWidget("user-profile-primary", dec => {
   //     const user = dec.attrs.user;
@@ -46,4 +44,3 @@ export default apiInitializer("1.8.0", (api) => {
   //     };
   //   });
   
-});
