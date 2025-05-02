@@ -23,8 +23,7 @@ export default apiInitializer("1.8.0", (api) => {
     <template>
       {{#if @outletArgs.user.user_fields}} <!-- Remplace 1 par ton ID -->
         <div class="user-age-range">
-          Âge : 
-          <pre>{{@outletArgs.user.user_fields}}</pre>
+          Âge : {{@outletArgs.user.user_fields["2"]}}
         </div>
       {{/if}}
     </template>
