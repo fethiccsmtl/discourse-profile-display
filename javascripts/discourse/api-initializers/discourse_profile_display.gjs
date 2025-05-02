@@ -19,6 +19,8 @@ export default apiInitializer("1.8.0", (api) => {
   );
 
   api.modifyClass('component:user-card-contents', {
+    pluginId: 'discourse-profile-display',
+
     didInsertElement() {
       this._super(...arguments);
       console.log("card loaded", this);
@@ -27,7 +29,6 @@ export default apiInitializer("1.8.0", (api) => {
       customEl.className = "my-custom-usercard-info";
       customEl.textContent = `🎉 Welcome, ${this.user.username}!`;
 
-      // Tu peux cibler un conteneur spécifique, ou ajouter en bas
       this.element.appendChild(customEl);
     }
   });
