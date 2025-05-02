@@ -3,21 +3,21 @@ import { apiInitializer } from "discourse/lib/api";
 export default apiInitializer("1.8.0", (api) => {
   const currentUser = api.getCurrentUser();
 
-  // Utilisation de document.createElement au lieu de JSX
   api.renderInOutlet("after-header", () => {
+    // Crée un conteneur div avec le message approprié
     const div = document.createElement("div");
     div.className = "custom-welcome-banner";
 
-    // Ajouter du texte en fonction de l'utilisateur
-    if (currentUser) {
-      div.textContent = `Welcome back @${currentUser.username}`;
-    } else {
-      div.textContent = "Welcome to our community";
-    }
+    // Utilisation du texte basé sur l'utilisateur
+    div.textContent = currentUser
+      ? `Welcome back @${currentUser.username}`
+      : "Welcome to our community";
 
+    // Retourne la div comme un élément valide
     return div;
   });
 });
+
 
   // api.decorateWidget("user-profile-primary", dec => {
   //     const user = dec.attrs.user;
