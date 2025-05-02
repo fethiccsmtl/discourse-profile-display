@@ -18,6 +18,13 @@ export default apiInitializer("1.8.0", (api) => {
   </template>
   );
 
+  api.renderInOutlet("user-card-after-metadata", 
+    // Crée un div avec le message approprié
+    <template>
+      args @{{outletArgs}}
+    </template>
+  );
+
   api.modifyClass('component:user-card-contents', {
     pluginId: 'discourse-profile-display',
 
