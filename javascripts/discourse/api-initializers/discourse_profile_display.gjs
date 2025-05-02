@@ -21,16 +21,10 @@ export default apiInitializer("1.8.0", (api) => {
   api.modifyClass('component:user-card-contents', {
     pluginId: 'discourse-profile-display',
 
-    // Ajoute un état dynamique
-    init() {
-      this._super(...arguments);
-      this.set('customMessage', `🎉 Welcome, ${this.user.username}!`);
-    },
-
-    // Lorsque le composant est inséré, log l'état
     didInsertElement() {
       this._super(...arguments);
       console.log("card loaded", this);
+      console.log("element", this.element);
     }
   });
 
