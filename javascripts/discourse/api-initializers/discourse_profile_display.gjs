@@ -18,8 +18,11 @@ export default apiInitializer("1.8.0", (api) => {
   </template>
   );
 
-  api.decorateWidget("card-content:after", (helper) => {
-    return helper.h("div.my-user-card-addon", "✨ Extra info here!");
+  api.modifyClass('component:user-card', {
+    didInsertElement() {
+      this._super(...arguments);
+      console.log("user card loaded", this.user);
+    }
   });
 
 });
