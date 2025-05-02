@@ -8,6 +8,7 @@ export default apiInitializer("1.8.0", (api) => {
   {{#if @outletArgs.user.user_fields.[2]}}
     {{#let @outletArgs.user.user_fields.[2] as |age|}}
       <div class="user-age-range">
+        @{{age}}
         {{#if (age 13)}}Tranche d'âge : 14 - 17 ans{{/if}}
         {{#if (age 14)}}Tranche d'âge : 14 - 17 ans{{/if}}
         {{#if (age 15)}}Tranche d'âge : 14 - 17 ans{{/if}}
