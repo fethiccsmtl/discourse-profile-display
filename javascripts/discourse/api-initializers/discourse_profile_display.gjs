@@ -18,7 +18,7 @@ export default apiInitializer("1.8.0", (api) => {
   </template>
   );
 
-  api.decorateWidget("user-card:after", (helper) => {
+  api.decorateWidget("card-content:after", (helper) => {
     return helper.h("div.my-user-card-addon", "✨ Extra info here!");
   });
 
