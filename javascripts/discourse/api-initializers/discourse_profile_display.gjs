@@ -5,6 +5,20 @@ export default apiInitializer("1.8.0", (api) => {
 
   console.log(currentUser)
 
+  api.renderInOutlet("after-header", () => {
+    // Crée un conteneur div avec le message approprié
+    const div = document.createElement("div");
+    div.className = "custom-welcome-banner";
+
+    // Utilisation du texte basé sur l'utilisateur
+    div.textContent = currentUser
+      ? `Welcome back @${currentUser.username}`
+      : "Welcome to our community";
+
+    // Retourne la div comme un élément valide
+    return div;
+  });
+
 });
 
 
