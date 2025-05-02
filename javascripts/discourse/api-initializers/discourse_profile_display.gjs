@@ -3,8 +3,8 @@ import { apiInitializer } from "discourse/lib/api";
 export default apiInitializer("1.8.0", (api) => {
   const currentUser = api.getCurrentUser();
 
-  cosole.log(currentUser)
-  
+  console.log(currentUser)
+
 });
 
 
