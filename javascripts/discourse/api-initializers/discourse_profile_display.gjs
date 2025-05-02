@@ -19,19 +19,21 @@ export default apiInitializer("1.8.0", (api) => {
   );
 
   api.modifyClass('component:user-card-contents', {
-    pluginId: 'discourse-profile-display',
+  pluginId: 'discourse-profile-display',
 
-    didInsertElement() {
-      this._super(...arguments);
-      console.log("card loaded", this);
+  didInsertElement() {
+    this._super(...arguments);
+    console.log("card loaded", this);
 
-      const customEl = document.createElement("div");
-      customEl.className = "my-custom-usercard-info";
-      customEl.textContent = `🎉 Welcome, ${this.user.username}!`;
+    // Créer un élément directement dans le modèle Ember
+    const customEl = document.createElement("div");
+    customEl.className = "my-custom-usercard-info";
+    customEl.textContent = `🎉 Welcome, ${this.user.username}!`;
 
-      this.element.appendChild(customEl);
-    }
-  });
+    // Ajouter proprement sans interférer avec l'élément d'Ember
+    this.element.querySelector('.user-card-contents').appendChild(customEl);
+  }
+});
 
 });
 
