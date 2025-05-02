@@ -6,16 +6,18 @@ export default apiInitializer("1.8.0", (api) => {
   console.log(currentUser)
 
   api.renderInOutlet("after-header", () => {
-    // Crée un conteneur div avec le message approprié
+    // Crée un div avec le message approprié
     const div = document.createElement("div");
-    div.className = "custom-welcome-banner";
+    div.classList.add("custom-welcome-banner");
 
-    // Utilisation du texte basé sur l'utilisateur
-    div.textContent = currentUser
-      ? `Welcome back @${currentUser.username}`
-      : "Welcome to our community";
+    // Ajoute du texte basé sur la présence d'un utilisateur
+    if (currentUser) {
+      div.textContent = `Welcome back @${currentUser.username}`;
+    } else {
+      div.textContent = "Welcome to our community";
+    }
 
-    // Retourne la div comme un élément valide
+    // Retourne le div dans l'outlet comme un composant valide
     return div;
   });
 
