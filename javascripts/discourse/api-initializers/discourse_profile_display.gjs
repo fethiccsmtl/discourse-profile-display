@@ -7,17 +7,12 @@ export default apiInitializer("1.8.0", (api) => {
   api.renderInOutlet("after-header", () => {
     return (
       <div class="custom-welcome-banner">
-        {currentUser
-          ? `Welcome back @${currentUser.username}`
-          : "Welcome to our community"}
+        { `Welcome back @${currentUser.username}`}
       </div>
     );
   });
 });
 
-api.renderInOutlet("above-main-container", () => {
-  return <div style={{ background: "green", color: "white" }}>Hello World</div>;
-});
 
   // api.decorateWidget("user-profile-primary", dec => {
   //     const user = dec.attrs.user;
