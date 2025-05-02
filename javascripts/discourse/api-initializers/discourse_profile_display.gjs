@@ -18,10 +18,10 @@ export default apiInitializer("1.8.0", (api) => {
   </template>
   );
 
-  api.modifyClass('component:user-card', {
+  api.modifyClass('component:user-card-contents', {
     didInsertElement() {
       this._super(...arguments);
-      console.log("user card loaded", this.user);
+      console.log("card loaded", this);
     }
   });
 
