@@ -1,9 +1,10 @@
 import Component from "@glimmer/component";
 import { hbs } from "ember-cli-htmlbars";
 
-export default class UserAgeRangeComponent extends Component {
+export default class UserAgeRange extends Component {
   get ageRangeLabel() {
-    const rawAge = this.args.user?.user_fields?.[2]; // Remplace 2 si nécessaire
+    const rawAge = this.args.outletArgs?.user?.user_fields?.[2]; // Remplace l'ID si nécessaire
+
     if (!rawAge) return null;
 
     const age = parseInt(rawAge, 10);
