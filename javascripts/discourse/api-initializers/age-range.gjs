@@ -13,6 +13,10 @@ export default apiInitializer("1.8.0", (api) => {
   });
 });
 
+api.renderInOutlet("above-main-container", () => {
+  return <div style={{ background: "green", color: "white" }}>Hello World</div>;
+});
+
   // api.decorateWidget("user-profile-primary", dec => {
   //     const user = dec.attrs.user;
   //     const fields = user.user_fields || {};
