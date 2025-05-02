@@ -22,6 +22,13 @@ export default apiInitializer("1.8.0", (api) => {
     didInsertElement() {
       this._super(...arguments);
       console.log("card loaded", this);
+
+      const customEl = document.createElement("div");
+      customEl.className = "my-custom-usercard-info";
+      customEl.textContent = `🎉 Welcome, ${this.user.username}!`;
+
+      // Tu peux cibler un conteneur spécifique, ou ajouter en bas
+      this.element.appendChild(customEl);
     }
   });
 
