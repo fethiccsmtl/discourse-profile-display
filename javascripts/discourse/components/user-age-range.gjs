@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
-import { hbs } from "ember-cli-htmlbars";
 
 export default class UserAgeRange extends Component {
+  
   get ageRangeLabel() {
     const rawAge = this.args.outletArgs?.user?.user_fields?.[2]; // Remplace l'ID si nécessaire
 
@@ -23,11 +23,11 @@ export default class UserAgeRange extends Component {
     return "Âge non défini";
   }
 
-  static template = hbs`
-    {{#if this.ageRangeLabel}}
+  <template>
+      {{#if this.ageRangeLabel}}
       <div class="user-age-range">
         Tranche d'âge : {{this.ageRangeLabel}}
       </div>
     {{/if}}
-  `;
+  </template>
 }
