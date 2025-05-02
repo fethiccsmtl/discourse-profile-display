@@ -1,18 +1,23 @@
 import { apiInitializer } from "discourse/lib/api";
 
 export default apiInitializer("1.8.0", (api) => {
+  const currentUser = api.getCurrentUser();
 
-  console.log("JS chargé !"); // <- pour vérifier
-
+  // Utilisation de document.createElement au lieu de JSX
   api.renderInOutlet("after-header", () => {
-    return (
-      <div class="custom-welcome-banner">
-        { `Welcome back @${currentUser.username}`}
-      </div>
-    );
+    const div = document.createElement("div");
+    div.className = "custom-welcome-banner";
+
+    // Ajouter du texte en fonction de l'utilisateur
+    if (currentUser) {
+      div.textContent = `Welcome back @${currentUser.username}`;
+    } else {
+      div.textContent = "Welcome to our community";
+    }
+
+    return div;
   });
 });
-
 
   // api.decorateWidget("user-profile-primary", dec => {
   //     const user = dec.attrs.user;
