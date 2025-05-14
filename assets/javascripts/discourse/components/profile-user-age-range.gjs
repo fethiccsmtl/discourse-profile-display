@@ -3,20 +3,7 @@ import Component from "@glimmer/component";
 export default class UserAgeRange extends Component {
   
   get ageRangeLabel() {
-    const rawAge = this.args.outletArgs?.model?.user_fields?.[2]; // Remplace l'ID si nécessaire
-
-    if (!rawAge) return null;
-
-    const age = parseInt(rawAge, 10);
-    if (isNaN(age)) {
-      if (rawAge.endsWith("-")) return "14 - 17 ans";
-      else if (rawAge.endsWith("+")) return "18 - 25 ans";
-      else return null;
-    }
-
-    if (age <= 17) return "14 - 17 ans";
-    else return "18 - 25 ans";
-    
+    return this.args.outletArgs?.model?.user_fields_display?.[2];
   }
 
   <template>

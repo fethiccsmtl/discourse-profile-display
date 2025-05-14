@@ -7,7 +7,7 @@ import { computed } from "@ember/object";
 
 export default apiInitializer("1.8.0", (api) => {
 
-  api.renderInOutlet("user-card-after-metadata", CardUserAgeRange);
-  api.renderInOutlet("user-post-names", ProfileUserAgeRange);
+   api.renderInOutlet("user-card-after-metadata", CardUserAgeRange);
+   api.renderInOutlet("user-post-names", ProfileUserAgeRange);
 
 });
