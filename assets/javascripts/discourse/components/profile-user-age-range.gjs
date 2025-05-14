@@ -3,7 +3,7 @@ import Component from "@glimmer/component";
 export default class UserAgeRange extends Component {
   
   get ageRangeLabel() {
-    const rawAge = this.args.outletArgs?.user?.user_fields?.[2]; // Remplace l'ID si nécessaire
+    const rawAge = this.args.outletArgs?.model?.user_fields?.[2]; // Remplace l'ID si nécessaire
 
     if (!rawAge) return null;
 
